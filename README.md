@@ -21,9 +21,9 @@ license: mit
 ---
 
 ## 🌐 Live Demonstration
-> 🔗 **Website URL:** `[ INSERT YOUR LIVE LINK HERE — e.g. https://fix-waterlogging.onrender.com ]`
+> 🔗 **Live AI Platform:** **[https://huggingface.co/spaces/Jatin-Yadav/Fix-Waterlogging](https://huggingface.co/spaces/Jatin-Yadav/Fix-Waterlogging)**
 > 
-> *Click above to explore live weather ingestion, flood risk simulations, and smart detour navigation on desktop or mobile.*
+> *Explore live weather ingestion, flood risk simulations, smart detour navigation, and municipal grievance dispatch live on desktop or mobile.*
 
 ---
 
