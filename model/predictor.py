@@ -15,7 +15,19 @@ class FloodPredictionAgent:
 
     def __init__(self, data_path: str = None):
         if not data_path:
-            data_path = DEFAULT_DATA_PATH
+            candidates = [
+                DEFAULT_DATA_PATH,
+                os.path.join(os.path.dirname(__file__), "..", "data", "geocoded_locations.json"),
+                os.path.join(os.getcwd(), "data", "geocoded_locations.json"),
+                os.path.join(os.getcwd(), "geocoded_locations.json"),
+                "data/geocoded_locations.json"
+            ]
+            for c in candidates:
+                if os.path.exists(c):
+                    data_path = c
+                    break
+            if not data_path:
+                data_path = DEFAULT_DATA_PATH
         with open(data_path, "r", encoding="utf-8") as f:
             self.hotspots = json.load(f)
 

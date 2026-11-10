@@ -5,15 +5,32 @@ import os
 import sys
 from typing import Dict, Any
 
-# Ensure project root is in sys.path
+# Robust root and sub-directory resolution for Linux, Windows, Docker & Render
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-if BASE_DIR not in sys.path:
-    sys.path.insert(0, BASE_DIR)
+for sub in ["", "model", "services", "data"]:
+    p = os.path.join(BASE_DIR, sub)
+    if p not in sys.path:
+        sys.path.insert(0, p)
 
-from model.predictor import FloodPredictionAgent
-from services.imd_service import IMDWeatherService
-from services.routing_service import DynamicRoutingEngine
-from services.complaint_service import MunicipalityComplaintService
+try:
+    from model.predictor import FloodPredictionAgent
+except ImportError:
+    from predictor import FloodPredictionAgent
+
+try:
+    from services.imd_service import IMDWeatherService
+except ImportError:
+    from imd_service import IMDWeatherService
+
+try:
+    from services.routing_service import DynamicRoutingEngine
+except ImportError:
+    from routing_service import DynamicRoutingEngine
+
+try:
+    from services.complaint_service import MunicipalityComplaintService
+except ImportError:
+    from complaint_service import MunicipalityComplaintService
 
 predictor_agent = FloodPredictionAgent()
 imd_weather_service = IMDWeatherService()

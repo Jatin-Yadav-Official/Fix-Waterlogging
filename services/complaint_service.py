@@ -8,8 +8,14 @@ import base64
 from typing import Dict, Any, Optional
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-COMPLAINTS_LOG_PATH = os.path.join(BASE_DIR, "data", "complaints.json")
 HELPLINES_PATH = os.path.join(BASE_DIR, "data", "helplines.json")
+if not os.path.exists(HELPLINES_PATH):
+    for c in [os.path.join(os.getcwd(), "data", "helplines.json"), os.path.join(os.getcwd(), "helplines.json"), "data/helplines.json"]:
+        if os.path.exists(c):
+            HELPLINES_PATH = c
+            break
+
+COMPLAINTS_LOG_PATH = os.path.join(os.path.dirname(HELPLINES_PATH), "complaints.json")
 CONFIG_PATH = os.path.join(BASE_DIR, "config.json")
 
 class MunicipalityComplaintService:
