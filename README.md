@@ -1,17 +1,7 @@
----
-title: Fix Waterlogging
-emoji: 🌊
-colorFrom: blue
-colorTo: indigo
-sdk: gradio
-app_file: app.py
-pinned: false
-license: mit
----
-
 # 🌊 Fix Waterlogging (Jal Sachet)
 ### *AI-Powered Urban Waterlogging Prediction, Smart Commuter Detours & Municipal Grievance Automation*
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://fix-waterlogging.onrender.com/)
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Leaflet](https://img.shields.io/badge/Leaflet-Interactive%20Maps-199900?style=for-the-badge&logo=leaflet&logoColor=white)](https://leafletjs.com)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-Responsive%20UI-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
@@ -21,9 +11,9 @@ license: mit
 ---
 
 ## 🌐 Live Demonstration
-> 🔗 **Live AI Platform:** **[https://huggingface.co/spaces/Jatin-Yadav/Fix-Waterlogging](https://huggingface.co/spaces/Jatin-Yadav/Fix-Waterlogging)**
+> 🔗 **Website URL:** **[https://fix-waterlogging.onrender.com/](https://fix-waterlogging.onrender.com/)**
 > 
-> *Explore live weather ingestion, flood risk simulations, smart detour navigation, and municipal grievance dispatch live on desktop or mobile.*
+> *Click above to explore live meteorological forecast ingestion, flood risk simulations, dark Leaflet maps, dynamic detour navigation, and 1-click WhatsApp municipal grievance dispatch live on desktop or mobile.*
 
 ---
 
@@ -85,7 +75,7 @@ During intense monsoon spells, major urban corridors—such as Gurugram's **NH-4
 | **Mapping & Geospatial** | Leaflet.js, OpenStreetMap CartoDB Dark Matter, Nominatim Geocoding |
 | **Backend API** | Python 3 Standard Library (`http.server`, `urllib`, `json`, `ssl`) |
 | **Meteorological Data** | Open-Meteo Weather API & IMD Observatories |
-| **Civic Dispatch** | WhatsApp Universal Click-to-Chat (`wa.me`) Protocol & Meta Cloud API |
+| **Civic Dispatch** | WhatsApp Universal Click-to-Chat (`wa.me`) Protocol |
 | **Dependencies** | **Zero heavy pip packages required!** Runs out-of-the-box on standard Python 3.8+ |
 
 ---
@@ -105,9 +95,11 @@ Fix Waterlogging/
 │   └── style.css           # Custom animations, dark maps & mobile styling
 │
 ├── model/
+│   ├── __init__.py         # Package initialization
 │   └── predictor.py        # Machine learning & sigmoid flood risk estimator
 │
 ├── services/
+│   ├── __init__.py         # Package initialization
 │   ├── weather_service.py  # Forecast ingestion & rolling storm analysis
 │   ├── routing_service.py  # Direct hazard detection & detour generation
 │   ├── complaint_service.py# WhatsApp dispatch formatting & ticket logger
@@ -147,9 +139,10 @@ Deploy your own live copy to **Render.com** in 2 minutes:
 3. Select your GitHub repository.
 4. Settings:
    - **Runtime:** `Python 3`
-   - **Build Command:** `pip install -r requirements.txt`
+   - **Build Command:** `pip install -r requirements.txt` (or leave empty)
    - **Start Command:** `python server.py`
-5. Click **Deploy Web Service**. You will get an instant public URL (e.g., `https://fix-waterlogging.onrender.com`).
+5. Click **Deploy Web Service**. You will get an instant public URL:
+   👉 **`https://fix-waterlogging.onrender.com/`**
 
 ---
 
