@@ -1,0 +1,109 @@
+/* Custom Styles & Leaflet Overrides */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.8);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 1);
+}
+
+/* Map Container */
+#map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1 !important;
+}
+
+/* CRITICAL FIX: Ensure modals are ALWAYS strictly above Leaflet panes */
+#complaint-modal,
+#history-modal,
+#settings-modal {
+  z-index: 99999 !important;
+}
+
+/* Constrain Leaflet control layers so they never pop above modals */
+.leaflet-pane {
+  z-index: 10 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 20 !important;
+}
+
+/* Leaflet Dark Map Tile adjustments */
+.leaflet-container {
+  background-color: #0f172a;
+}
+.leaflet-popup-content-wrapper {
+  background: #1e293b;
+  color: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+}
+.leaflet-popup-tip {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+/* Pulsating Risk Markers */
+@keyframes pulse-ring-red {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.4); opacity: 0.2; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.pulse-red {
+  animation: pulse-ring-red 2s infinite ease-in-out;
+}
+
+.custom-marker-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+
+/* Mobile Optimization & Responsive Styling */
+@media (max-width: 768px) {
+  /* Space Leaflet zoom and bottom controls away from edges & toggle bar */
+  .leaflet-bottom {
+    margin-bottom: 75px !important;
+  }
+  .leaflet-top {
+    margin-top: 8px !important;
+  }
+  
+  /* Compact popups on mobile */
+  .leaflet-popup-content {
+    margin: 10px 12px !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    max-width: 250px !important;
+  }
+
+  /* Smooth scrolling on mobile drawers */
+  #main-sidebar {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent any horizontal overflow */
+  body, html {
+    overflow-x: hidden !important;
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+static/uploads/
+*.jpg
+*.jpeg
+*.png
+*.gif
+.DS_Store
+Thumbs.db

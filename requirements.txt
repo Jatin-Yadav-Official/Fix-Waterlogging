@@ -1,0 +1,4 @@
+# Fix Waterlogging Requirements
+# Core uses Python Standard Library (http.server, json, urllib, ssl)
+# Gradio for Hugging Face Spaces deployment
+gradio>=4.0.0

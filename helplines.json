@@ -1,0 +1,18 @@
+{
+  "Gurugram": {
+    "whatsapp": "7840001817",
+    "toll_free": "1800-180-1817",
+    "landline": "0124-4753555",
+    "emergency": "112",
+    "authority": "GMDA Grievance / Flood Control Cell",
+    "note": "GMDA grievance WhatsApp handles GMDA, MCG and Manesar MC. Photo submission supported."
+  },
+  "Chandigarh": {
+    "whatsapp": "7840001817",
+    "toll_free": "0172-2540200",
+    "landline": "0172-2738082",
+    "emergency": "112",
+    "authority": "Chandigarh Municipal Corporation (MC) Flood Control Room",
+    "note": "Primary control room: 0172-2540200 (Sector 15) & 112 for emergency waterlogging assistance."
+  }
+}
