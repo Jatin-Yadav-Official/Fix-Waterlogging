@@ -16,6 +16,18 @@ from services.complaint_service import MunicipalityComplaintService
 
 import gradio as gr
 
+# Support Hugging Face ZeroGPU infrastructure
+try:
+    import spaces
+except ImportError:
+    class MockSpaces:
+        @staticmethod
+        def GPU(func=None, **kwargs):
+            if func is None:
+                return lambda f: f
+            return func
+    spaces = MockSpaces()
+
 # Initialize AI and civic services
 predictor = FloodPredictionAgent()
 weather_service = IMDWeatherService()
@@ -50,6 +62,7 @@ def on_city_change(city: str):
         gr.Dropdown(choices=routes, value=routes[0] if routes else None)
     )
 
+@spaces.GPU
 def predict_waterlogging(city: str, hotspot_name: str, rainfall_mm: float, duration_mins: float):
     if not hotspot_name:
         return "⚠️ Please select a hotspot location."
@@ -333,7 +346,7 @@ custom_theme = gr.themes.Soft(
     neutral_hue="slate"
 )
 
-with gr.Blocks(theme=custom_theme, title="Fix Waterlogging (Jal Sachet) | AI Civic Platform") as demo:
+with gr.Blocks(title="Fix Waterlogging (Jal Sachet) | AI Civic Platform") as demo:
     gr.HTML("""
     <div style="text-align: center; padding: 24px 12px 16px 12px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 12px; margin-bottom: 18px; border: 1px solid #334155;">
         <h1 style="font-size: 30px; font-weight: 800; color: #ffffff; margin-bottom: 6px; letter-spacing: -0.02em;">
@@ -438,4 +451,4 @@ with gr.Blocks(theme=custom_theme, title="Fix Waterlogging (Jal Sachet) | AI Civ
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 7860))
-    demo.launch(server_name="0.0.0.0", server_port=port)
+    demo.launch(server_name="0.0.0.0", server_port=port, theme=custom_theme)
